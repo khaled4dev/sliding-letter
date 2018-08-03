@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #main{
+        height: 100vh;
+        width: 100%;
+        background-image: url('./images/ban.jpg');
+        overflow: hidden;
+    }
+    .slider{
+        position: relative;
+        width: 400%;
+        margin: 0px;
+        left: 5%;
+    }
+    #s,#n,#a{
+        width: 25%;
+        font-size: 20cm;
+        font-family: fantasy;
+        line-height: 16.5cm;
+        background-image: url('./images/back-1.jpg');
+        height: 100vh;
+        background-position: -200px 0px;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat:no-repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        float: left;
+
+    }
+    #n{
+        background-image: url('./images/back-2.jpg');
+        background-position: 0px 0px;
+    }
+    #a{
+        background-image: url('./images/back-3.jpg');
+        background-position: 600px 0px;
+    }
+    .data,.data2,.data3,.data4{
+        width: 350px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #111;
+        line-height: 35px;
+        position: fixed;
+        top: 50%;
+        left: 75%;
+        transform: translate(-50%,-50%);
+    }
+    .data2{
+        left: 40%;
+        display: none;
+    }
+    .data3{
+        left: 70%;
+        display: none;
+    }
+    .data4{
+        left: 40%;
+        display: none;
+    }
+    .title{
+        margin-top: 5px;
+        font-size: 35px;
+        font-family: fantasy;
+    }
+    .info{
+        width: 350px;
+        margin-top: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 25px;
+        color: white;
+    }
+    .line{
+        height: 60%;
+        width: 2px;
+        position: fixed;
+        top: 15%;
+        left: 60%;
+        background: linear-gradient(#111 0%,#03a9f4 90%);
+    }
+    hr{
+        margin: 0px;
+        padding: 0px;
+        margin-top: -6px;
+    }
+    #navigaton{
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    a{
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        background: #111;
+        border-radius: 50%;
+        outline: none;
+        border: 1px solid #111;
+        transition: all .5s;
+    }
+    </style>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("a:nth-child(1)").css("background-color","white");
+        $("#cirlce1").click(function(){
+            $(".slider").animate({'left':'5%'},500);
+            $(".data").fadeIn(700);
+            $(".data2,.data3,.data4").fadeOut(500);
+            $(".line").animate({'left':'60%'});
+            $("a:nth-child(1)").css("background-color","white");
+            $("a:nth-child(2),a:nth-child(3),a:nth-child(4)").css("background-color","black");
+        });
+        $("#cirlce2").click(function(){
+            $(".slider").animate({'left':'-30%'},500);
+            $(".data2").fadeIn(700);
+            $(".data,.data3,.data4").fadeOut(500);
+            $(".line").animate({'left':'25%'});
+            $("a:nth-child(2)").css("background-color","white");
+            $("a:nth-child(1),a:nth-child(3),a:nth-child(4)").css("background-color","black");
+        });
+        $("#cirlce3").click(function(){
+            $(".slider").animate({'left':'-190%'},500);
+            $(".data3").fadeIn(700);
+            $(".data,.data2,.data4").fadeOut(500);
+            $(".line").animate({'left':'55%'});
+            $("a:nth-child(3)").css("background-color","white");
+            $("a:nth-child(1),a:nth-child(2),a:nth-child(4)").css("background-color","black");
+        });
+        $("#cirlce4").click(function(){
+            $(".slider").animate({'left':'-240%'},500);
+            $(".data4").fadeIn(700);
+            $(".data,.data2,.data3").fadeOut(500);
+            $(".line").animate({'left':'25%'});
+            $("a:nth-child(4)").css("background-color","white");
+            $("a:nth-child(1),a:nth-child(2),a:nth-child(3)").css("background-color","black");
+        });
+    });
+    var l1=$ ("#s");
+    var l2=$ ("#a");
+    var l3=$ ("#n");
+    var l4=$ ("#a");
+
+        var layer=$ ("#main");
+        layer.mousemove(function(e){
+            var valueX = (e.pageX * -1  / 40 );
+            l1.css({'background-Position':(valueX - 200)+ '' +0});
+            l2.css({'background-Position':(valueX)+ '' +0});
+            l3.css({'background-Position':(valueX - 200)+ '' +0});
+            l4.css({'background-Position':(valueX + 600)+ '' +0});
+        });
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        <div class="slider">
+            <div id="s">
+                S
+            </div>
+            <div class="line"></div>
+            <div class="data">
+                Case1
+                <br>
+                <hr size="2" width="50px" color="#111" align="left" />
+                <div class="title">
+                    MY
+                    <br> LOVE
+                </div>
+                <div class="info">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptatum dolorem quasi pariatur quaerat? In porro iure
+                        eum aut! Nulla doloribus labore tempora pariatur maxime. Aliquam dicta eaque magnam, fugit, dolore
+                        numquam explicabo nihil impedit fugiat reprehenderit voluptatum deserunt ex?
+                    </p>
+                </div>
+            </div>
+            <div id="a">
+               A
+            </div>
+            <div class="line"></div>
+            <div class="data2">
+                Case2
+                <br>
+                <hr size="2" width="50px" color="#111" align="left" />
+                <div class="title">
+                    MY
+                    <br> LOVE
+                </div>
+                <div class="info">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptatum dolorem quasi pariatur quaerat? In porro iure
+                        eum aut! Nulla doloribus labore tempora pariatur maxime. Aliquam dicta eaque magnam, fugit, dolore
+                        numquam explicabo nihil impedit fugiat reprehenderit voluptatum deserunt ex?
+                    </p>
+                </div>
+            </div>
+            <div id="n">
+                N
+            </div>
+            <div class="line"></div>
+            <div class="data3">
+                Case1
+                <br>
+                <hr size="2" width="50px" color="#111" align="left" />
+                <div class="title">
+                    MY
+                    <br> LOVE
+                </div>
+                <div class="info">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptatum dolorem quasi pariatur quaerat? In porro iure
+                        eum aut! Nulla doloribus labore tempora pariatur maxime. Aliquam dicta eaque magnam, fugit, dolore
+                        numquam explicabo nihil impedit fugiat reprehenderit voluptatum deserunt ex?
+                    </p>
+                </div>
+            </div>
+            <div id="a">
+               A
+            </div>
+            <div class="line"></div>
+            <div class="data4">
+                Case1
+                <br>
+                <hr size="2" width="50px" color="#111" align="left" />
+                <div class="title">
+                    MY
+                    <br> LOVE
+                </div>
+                <div class="info">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptatum dolorem quasi pariatur quaerat? In porro iure
+                        eum aut! Nulla doloribus labore tempora pariatur maxime. Aliquam dicta eaque magnam, fugit, dolore
+                        numquam explicabo nihil impedit fugiat reprehenderit voluptatum deserunt ex?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="navigaton">
+       <a href="#" id="cirlce1"></a>
+       <a href="#" id="cirlce2"></a>
+       <a href="#" id="cirlce3"></a>
+       <a href="#" id="cirlce4"></a>
+    </div>
+
+    <script>
+
+    
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
